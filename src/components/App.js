@@ -10,7 +10,7 @@ function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
-  const [selectedCard, setSelectedCard] = React.useState();
+  const [selectedCard, setSelectedCard] = React.useState(null);
 
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true);
@@ -45,8 +45,13 @@ function App() {
             />   
       <Footer/>   
 
-      <PopupWithForm title="Редактировать профиль" name="edit" buttonText="Сохранить" 
-        isOpen={isEditProfilePopupOpen}  onClose={closeAllPopups}>
+      <PopupWithForm 
+        title="Редактировать профиль" 
+        name="edit"
+        buttonText="Сохранить" 
+        isOpen={isEditProfilePopupOpen}
+        onClose={closeAllPopups}
+        >
         <div className="form__box">
         <input placeholder="Имя" className="form__input form__input_type_name" name="name" 
           required minLength="2" maxLength="40" id="name-input" defaultValue="Жак-Ив Кусто"></input>
@@ -60,8 +65,13 @@ function App() {
         </div>
       </PopupWithForm>
 
-      <PopupWithForm title="Новое место" name="place" buttonText="Создать" 
-        isOpen={isAddPlacePopupOpen} onClose={closeAllPopups}>
+      <PopupWithForm 
+        title="Новое место" 
+        name="place" 
+        buttonText="Создать" 
+        isOpen={isAddPlacePopupOpen} 
+        onClose={closeAllPopups}
+        >
         <div className="form__box">
           <input placeholder="Название" className="form__input form__input_type_name"
             required minLength="2" maxLength="30" name="name" id="nameCard-input"></input>
@@ -75,8 +85,13 @@ function App() {
         </div>
       </PopupWithForm>
 
-      <PopupWithForm title="Обновить аватар" name="avatar" buttonText="Сохранить" 
-        isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups}>
+      <PopupWithForm 
+        title="Обновить аватар" 
+        name="avatar" 
+        buttonText="Сохранить" 
+        isOpen={isEditAvatarPopupOpen} 
+        onClose={closeAllPopups}
+      >
         <div className="form__box">
           <input placeholder="Ссылка на картинку" name="avatar" className="form__input
             form__input_type_link" id="avatar-input" required type="url"></input>
@@ -84,7 +99,10 @@ function App() {
         </div>
       </PopupWithForm>
 
-      <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
+      <ImagePopup 
+        card={selectedCard}
+        onClose={closeAllPopups}
+      />
 
     </div>
   );
