@@ -18,9 +18,9 @@
 
 ## Демо
 
-...
-...
-...
+[Проект на GitHub Pages](https://github.com/bmazurme)
+
+![Alt-текст](https://github.com/bmazurme/mesto-react/blob/main/src/images/mesto.png "demo")
 
 ### Обзор
 * Figma
