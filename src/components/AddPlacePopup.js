@@ -20,7 +20,12 @@ function AddPlacePopup(props) {
         name: name,
         link: link
       });
-  } 
+  }
+
+  React.useEffect(() => { 
+    setName(''); 
+    setLink(''); 
+  }, [props.isOpen]); 
 
   return(
     <PopupWithForm title="Новое место" 
@@ -33,7 +38,7 @@ function AddPlacePopup(props) {
       <div className="form__box">
         <input placeholder="Название"
                onChange={handleNameChange} 
-               value={name ? name : ''}
+               value={name || ''}
                className="form__input form__input_type_name"
                required 
                minLength="2" 
@@ -45,7 +50,7 @@ function AddPlacePopup(props) {
       <div className="form__box">
         <input placeholder="Ссылка на картинку"
                onChange={handleLinkChange}
-               value={link ? link : ''}
+               value={link || ''}
                name="link" 
                className="form__input form__input_type_link" 
                id="link-input" 
