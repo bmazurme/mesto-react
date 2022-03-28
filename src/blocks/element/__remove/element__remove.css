@@ -1,5 +1,5 @@
 .element__remove {
-  display: flex;
+  display: none;
   position: absolute;
   cursor:pointer;
   height: 19px;
