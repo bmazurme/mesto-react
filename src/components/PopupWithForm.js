@@ -1,6 +1,7 @@
 function PopupWithForm(props) {
   return (
-    <div className={`popup popup_type_${props.name} ${props.isOpen && 'popup_active'}`}>
+    <div onClick={ e => (e.currentTarget === e.target) && props.onClose()} 
+         className={`popup popup_type_${props.name} ${props.isOpen && 'popup_active'}`}>
     <div className="popup__container">
       <button aria-label="Close" 
               className="popup__close" 

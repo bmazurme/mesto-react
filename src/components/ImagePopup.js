@@ -1,6 +1,7 @@
 function ImagePopup(props) {
   return(
-    <div className={`popup popup_type_slide popup_image ${props.card && 'popup_active'}`}>
+    <div onClick={ e => (e.currentTarget === e.target) && props.onClose()}
+         className={`popup popup_type_slide popup_image ${props.card && 'popup_active'}`}>
       <div className="popup__container popup__container_image">
         <button aria-label="Close"
                 className="popup__close" 
