@@ -21,15 +21,24 @@ function App() {
   const [cards, setCards] = React.useState([]);
   const [isConfirmPopupOpen, setIsConfirmPopupOpen] = React.useState(false);
 
+  function escFunction(event){
+    if (event.key === "Escape") {
+      closeAllPopups();
+    }
+  }
+
   React.useEffect(() => {
     api.getUser().then((userData) => {
-      setCurrentUser(userData);
+        setCurrentUser(userData);
     });
-    api.getCards()
-    .then((cardData) => {
-      setCards(cardData);
+    api.getCards().then((cardData) => {
+        setCards(cardData);
     })
-    .catch((err) => console.log(err));;
+    .catch((err) => console.log(err));
+    document.addEventListener("keydown", escFunction, false);
+    return () => {
+      document.removeEventListener("keydown", escFunction, false);
+    }
   }, []);
 
   function handleCardLike(card) {
@@ -128,15 +137,16 @@ function App() {
               cards={cards}
         />   
         <Footer/>   
+
         <EditProfilePopup isOpen={isEditProfilePopupOpen} 
                           onClose={closeAllPopups} 
                           onUpdateUser={handleUpdateUser}
                           isLoading={isLoading}
         /> 
-        <EditAvatarPopup  isOpen={isEditAvatarPopupOpen} 
-                          onClose={closeAllPopups}
-                          onUpdateAvatar={handleUpdateAvatar}
-                          isLoading={isLoading}
+        <EditAvatarPopup isOpen={isEditAvatarPopupOpen} 
+                         onClose={closeAllPopups}
+                         onUpdateAvatar={handleUpdateAvatar}
+                         isLoading={isLoading}
         />
         <AddPlacePopup isOpen={isAddPlacePopupOpen}
                        onClose={closeAllPopups}

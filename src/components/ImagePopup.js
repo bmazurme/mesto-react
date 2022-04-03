@@ -1,3 +1,5 @@
+import React from "react";
+
 function ImagePopup(props) {
   return(
     <div onClick={ e => (e.currentTarget === e.target) && props.onClose()}

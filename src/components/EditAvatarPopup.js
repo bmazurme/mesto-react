@@ -15,12 +15,12 @@ function EditAvatarPopup(props) {
   }, [props.isOpen]);
 
   return(
-    <PopupWithForm  title="Обновить аватар" 
-                    name="avatar" 
-                    buttonText={props.isLoading? 'Загрузка...' : 'Сохранить'}  
-                    isOpen={props.isOpen} 
-                    onClose={props.onClose}
-                    onSubmit={handleSubmit}
+    <PopupWithForm title="Обновить аватар" 
+                   name="avatar" 
+                   buttonText={props.isLoading? 'Загрузка...' : 'Сохранить'}  
+                   isOpen={props.isOpen} 
+                   onClose={props.onClose}
+                   onSubmit={handleSubmit}
     >
     <div className="form__box">
       <input ref={avatarRef}
